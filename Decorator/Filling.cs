@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab
+namespace Decorator
 {
-    class FactoryMethod
+    abstract class Filling
     {
 
     }
