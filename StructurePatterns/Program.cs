@@ -1,22 +1,23 @@
 ﻿using System;
 using lab;
+using Strategy;
 namespace StructurePatterns
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Generator generator = new();
+            SortingAlgorithm sortingAlgorithm = new();
+            Library library = new();
+            Menu menu = new(library);
+            menu.ShowBooks();
             
-
-
-            OutputModule emptymodule = new();
-            Format1Decorator moduleWithFormat1 = new(emptymodule);
-            Format2Decorator moduleWithFormat2 = new(emptymodule);
-            Format2Decorator moduleWithAllFormats = new(moduleWithFormat1);
-
-
-
+            PagesCountBookComparer pagesCountBookComparer = new();
+            TitleBookComparer bookComparer = new();
+            menu.SortBooks(sortingAlgorithm, pagesCountBookComparer);
+            menu.ShowBooks();
+            menu.SortBooks(sortingAlgorithm,bookComparer);
+            menu.ShowBooks();
         }
     }
 }

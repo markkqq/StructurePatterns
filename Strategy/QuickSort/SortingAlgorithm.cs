@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Strategy
 {
-    abstract class SortingAlgorithm<T>
+    public class SortingAlgorithm
     {
-        public List<T> Sort(List<T> unsorted)
+        public List<Book> Sort(List<Book> unsorted, IBookComparer bookComparer)
         {
             if (unsorted.Count == 0 | unsorted.Count == 1)
             {
                 return unsorted;
             }
 
-            List<T> lesser = new();
-            List<T> equal = new();
-            List<T> greater = new();
+            List<Book> lesser = new();
+            List<Book> equal = new();
+            List<Book> greater = new();
 
-            T baseElement = unsorted[0];
+            Book baseElement = unsorted[0];
 
-            foreach(T element in unsorted)
+            foreach(Book element in unsorted)
             {
-                int compareResult = Compare(baseElement,element);
+                int compareResult = bookComparer.Compare(baseElement,element);
                 if (compareResult < 0)
                 {
                     lesser.Add(element);
@@ -39,9 +39,9 @@ namespace Strategy
                 
             }
 
-            List<T> sortedLesser = Sort(lesser);
-            List<T> sortedGreater = Sort(greater);
-            List<T> sorted = new();
+            List<Book> sortedLesser = Sort(lesser, bookComparer);
+            List<Book> sortedGreater = Sort(greater, bookComparer);
+            List<Book> sorted = new();
 
             sorted.AddRange(sortedLesser);
             sorted.AddRange(equal);
@@ -49,7 +49,7 @@ namespace Strategy
 
             return sorted;
         }
-        protected abstract int Compare(T firstItem, T secondItem);
+
 
     }
 }

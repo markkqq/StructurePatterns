@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Strategy
 {
-    class Library
+    public class Library
     {
-        public List<Book> Books { get; } = new()
+        public List<Book> Books { get; set; } = new()
 
         {
             new Book("aaa", 120, "authorggg"),
