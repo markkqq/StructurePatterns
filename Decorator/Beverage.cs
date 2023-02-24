@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Decorator
 {
-    abstract class Filling
+    public class Beverage
     {
-
+        public double Price { get; set; } = 20;
     }
 }
