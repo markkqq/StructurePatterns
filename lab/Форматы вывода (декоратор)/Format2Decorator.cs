@@ -18,7 +18,7 @@ namespace lab
         }
         public override string ShowNews(Note note)
         {
-            return AddSpecial() + decoratee.ShowNews(note) + AddSpecial();
+            return AddSpecial() + decoratee.ShowNews(note) + AddSpecial(); 
         }
     }
 }

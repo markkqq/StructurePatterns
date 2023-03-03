@@ -10,7 +10,7 @@ namespace lab
     {
         string AddSpecial()
         {
-            return " -- с форматом 1 -- ";
+            return " -- с форматом 1 -- "; 
         }
         public Format1Decorator(OutputModule decoratee) : base(decoratee)
         {
