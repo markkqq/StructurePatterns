@@ -2,6 +2,7 @@
 using lab;
 using Strategy;
 using Decorator;
+using Builder;
 namespace StructurePatterns
 {
     class Program
@@ -48,6 +49,30 @@ namespace StructurePatterns
             Console.WriteLine(format1Decorator.ShowNews(note2));
             #endregion
 
+            #region Строитель
+            House houseFrame = House.Builder
+                .AddFoundation(36)
+                .AddWalls(4)
+                .AddRoof("iron")
+                .Build();
+            House fullHouse = House.Builder
+                .AddFoundation(50)
+                .AddWalls(10)
+                .AddRoof("wood")
+                .AddDoor(2, "iron")
+                .AddWindows(5)
+                .Build();
+            Console.WriteLine(@"Площадь дома - {0}, Стен - {1}, Материал крыши - {2}",houseFrame.Foundation.Square
+                ,houseFrame.Wall.Count
+                ,houseFrame.Roof.Material);
+            Console.WriteLine(@"Площадь дома - {0}, Стен - {1}, Материал крыши - {2}, Окон - {3}, Дверей - {4}",
+                fullHouse.Foundation.Square,
+                fullHouse.Wall.Count,
+                fullHouse.Roof.Material,
+                fullHouse.Window.Count,
+                fullHouse.Door.Count);
+            #endregion
         }
+
     }
 }
