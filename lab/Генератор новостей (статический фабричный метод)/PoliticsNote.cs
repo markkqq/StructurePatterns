@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace lab
 {
-    public class Generator
+    public class PoliticsNote : Note
     {
-        public virtual Note GenerateNote()
+        public PoliticsNote(string content, string topic) : base(content, topic)
         {
-            return new Note("без названия","неизвестен");
+
         }
     }
 }

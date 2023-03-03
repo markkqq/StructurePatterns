@@ -4,8 +4,4 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Форматы вывода %28фабричный метод%29\" />
-  </ItemGroup>
-
 </Project>

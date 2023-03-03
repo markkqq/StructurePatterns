@@ -8,7 +8,7 @@ namespace lab
 {
     public class Note
     {
-        public string Content { get; }
+        public string Content { get;  }
         public string Topic { get; }
         public Note(string content, string topic)
         {
